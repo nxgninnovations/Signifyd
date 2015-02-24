@@ -30,9 +30,8 @@ What Do I Need To Use The Plugin?
 1.	You need to have WooCommerce plugin installed and activated on your WordPress site.
 2.	You need to open an account on [Signifyd](http://www.signifyd.com/).
 
-== Changelog ==
-
-= 1.0.0 =
+== Changelog ==
+= 1.0.0 =
 *   First release
-
+= 1.0.1 =*   Changes to handle different database names= 1.0.2 =*   Edits to give Dashboard access to Non-Admin users.
 == Upgrade Notice ==
