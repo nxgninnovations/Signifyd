@@ -12,19 +12,16 @@ abstract class Signifyd_Case_Abstract extends Varien_Object{
 
     const PURCHASE = 'purchase';
     const API_CASES_URL = 'https://api.signifyd.com/v2/cases';
-    //const USERNAME = 'ewjRS8OQaPPWbpMNiocnqIvQK:';
-	//const USERNAME = '8aiekKnZCIyFar7D4PYJigth8:';
-    //const USERNAME = get_site_option( 'signifyd_api' ).":";
 	const PASSWORD = '';
     
     //VALIDATION
-    const VALIDATE_IP = 'VALIDATION_IP'; //192.168.1.1
-    const VALIDATE_STRING = 'VALIDATION_STRING'; //4fj58as
-    const VALIDATE_DATETIME = 'VALIDATION_DATETIME'; //2013-01-18T17:54:31-05:00
-    const VALIDATE_CURRENCY = 'VALIDATION_CURRENCY'; //USD
-    const VALIDATE_DECIMAL = 'VALIDATION_DECIMAL'; //74.99
-    const VALIDATE_URL = 'VALIDATION_URL'; //http://mydomain.com/sparkly-sandals
-    const VALIDATE_INTEGER = 'VALIDATION_INTEGER'; //1
+    const VALIDATE_IP = 'VALIDATION_IP'; 
+    const VALIDATE_STRING = 'VALIDATION_STRING'; 
+    const VALIDATE_DATETIME = 'VALIDATION_DATETIME'; 
+    const VALIDATE_CURRENCY = 'VALIDATION_CURRENCY'; 
+    const VALIDATE_DECIMAL = 'VALIDATION_DECIMAL'; 
+    const VALIDATE_URL = 'VALIDATION_URL';
+    const VALIDATE_INTEGER = 'VALIDATION_INTEGER'; 
 
     protected $_type = null;
     protected $_url = null;
@@ -101,7 +98,7 @@ abstract class Signifyd_Case_Abstract extends Varien_Object{
         curl_setopt($ch, CURLOPT_USERPWD, get_site_option( 'signifyd_api' ).':'.self::PASSWORD);
         $response = curl_exec($ch);
         curl_close($ch);
-  echo "<script type='text/javascript'>alert(".$response.");</script>";
+  
         $this->setResponse($jsonResponse);
 		return json_decode($response,true)[score];
     }

@@ -103,8 +103,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 							'createdAt'         => $time->format(DateTime::ATOM),
 							'paymentGateway'    => 'paypal',
 							'currency'          => 'USD',
-							/** 'avsResponseCode'   => get_post_meta( $post_id, '_braintree_avsVer', true ), */
-							/** 'cvvResponseCode'   => get_post_meta( $post_id, '_braintree_ccvVer', true ), */
 							'orderChannel'      => 'WEB',
 							'receivedBy'        => '',
 							'totalPrice'        => get_post_meta( $post_id, '_order_total', true)
@@ -121,16 +119,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 									'itemQuantity'=> $item['qty'],
 									'itemPrice'=> $item['line_total'],			
 								));
-						}
-
-						//ADD SHIPMENTS INFORMATION
-						/** $request->addShipment(array(
-							'shipper'=> 'USPS',
-							'shippingMethod'=> 'ground',
-							'shippingPrice'=> X.XX,
-							'trackingNumber'=> 'XXXXXXXXXXXXXXXXXXXX'
-						)); */
-						
+						}						
 						//ADD RECIPIENT INFORMATION
 						$request->addRecipient(array(
 								'fullName' => get_post_meta( $post_id, '_shipping_first_name', true ).' '.get_post_meta( $post_id, '_shipping_last_name', true ),
@@ -144,8 +133,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 									'provinceCode' =>  get_post_meta( $post_id, '_shipping_state', true ),
 									'postalCode' => get_post_meta( $post_id, '_shipping_postcode', true ),
 									'countryCode' => get_post_meta( $post_id, '_shipping_country', true ),
-									/** 'latitude' => XX.XX,
-									'longitude' => XX.XX */
 								))
 						);
 						
@@ -153,11 +140,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 						//ADD CARD INFORMATION
 						$request->addCard(array(
 								'cardHolderName' => get_post_meta( $post_id, '_billing_first_name', true ).' '.get_post_meta( $post_id, '_billing_last_name', true ),
-								/** 'bin' => get_post_meta( $post_id, '_braintree_binNum', true ), */
-								/** 'last4' => get_post_meta( $post_id, '_braintree_last4CC', true ), */
-								/** 'expiryMonth' => get_post_meta( $post_id, '_braintree_expMonth', true ), */
-								/** 'expiryYear' => get_post_meta( $post_id, '_braintree_expYear', true ), */
-								/** 'hash' => 'xxxxxxxxxxxxx', */
 								'billingAddress' => array(
 									'streetAddress' => get_post_meta( $post_id, '_billing_address_1', true ),
 									'unit' => get_post_meta( $post_id, '_billing_address_2', true ),
@@ -165,8 +147,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 									'provinceCode' => get_post_meta( $post_id, '_billing_state', true ),
 									'postalCode' => get_post_meta( $post_id, '_billing_postcode', true ),
 									'countryCode' => get_post_meta( $post_id, '_billing_country', true ),
-									/** 'latitude' => XX.XX,
-									'longitude' => XX.XX */
 								))
 						); 
 
