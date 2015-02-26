@@ -97,10 +97,7 @@ abstract class Signifyd_Case_Abstract extends Varien_Object{
         curl_setopt($ch, CURLOPT_HTTPGET, 1);
         curl_setopt($ch, CURLOPT_USERPWD, get_site_option( 'signifyd_api' ).':'.self::PASSWORD);
         $response = curl_exec($ch);
-        curl_close($ch);
-  
-        $this->setResponse($jsonResponse);
-		return json_decode($response,true)[score];
+        curl_close($ch);		$obj= json_decode($response);				return $obj->score;
     }
 	
     protected function getJson(){
